@@ -9,9 +9,9 @@ const Computers = ({ deviceType }) => {
 
   // Dynamically adjust the scale and position based on the device type
   const config = {
-    "mini-mobile": { scale: 0.5, position: [0, -4.5, -1.5] },
-    mobile: { scale: 0.6, position: [0, -4.5, -2.2] },
-    tablet: { scale: 0.7, position: [0, -4.5, -1.5] },
+    "mini-mobile": { scale: 0.5, position: [0, -3, -2.5] },
+    mobile: { scale: 0.6, position: [0, -3.5, -2.2] },
+    tablet: { scale: 0.7, position: [0, -4, -1.5] },
     desktop: { scale: 0.85, position: [0, -5, -0.75] },
   };
 
@@ -46,7 +46,7 @@ const ComputersCanvas = () => {
     // Breakpoints for different screen sizes
     const updateDeviceType = () => {
       const width = window.innerWidth;
-      if (width <= 500) setDeviceType("mini-mobile");
+      if (width <= 400) setDeviceType("mini-mobile");
       else if (width > 400 && width <= 640) setDeviceType("mobile");
       else if (width > 640 && width <= 1024) setDeviceType("tablet");
       else setDeviceType("desktop");
