@@ -1,25 +1,26 @@
 import React from "react";
-import Tilt from "react-tilt";
+import Tilt from "react-parallax-tilt"; // Use react-parallax-tilt
 import { motion } from "framer-motion";
 
 import { styles } from "../styles";
 import { services } from "../constants";
 import { SectionWrapper } from "../hoc";
 import { fadeIn, textVariant } from "../utils/motion";
-import { FaLinkedin, FaGithub } from 'react-icons/fa'; // Import icons
+import { FaLinkedin, FaGithub } from "react-icons/fa";
 
 const ServiceCard = ({ index, title, icon }) => (
-  <Tilt className="xs:w-[250px] w-full">
+  <Tilt
+    className="xs:w-[250px] w-full"
+    tiltMaxAngleX={45} // Adjusted properties for react-parallax-tilt
+    tiltMaxAngleY={45}
+    scale={1}
+    transitionSpeed={450}
+  >
     <motion.div
       variants={fadeIn("right", "spring", index * 0.5, 0.75)}
       className="w-full green-pink-gradient p-[1px] rounded-[20px] shadow-card"
     >
       <div
-        options={{
-          max: 45,
-          scale: 1,
-          speed: 450,
-        }}
         className="bg-tertiary rounded-[20px] py-5 px-12 min-h-[280px] flex justify-evenly items-center flex-col"
       >
         <img
@@ -57,31 +58,29 @@ const About = () => {
         user-friendly solutions. Let’s work together to bring your ideas to
         life!
       </motion.p>
-       {/* Add LinkedIn and GitHub icons below the text with blue background */}
-       <div className="flex gap-5 mt-5">
+
+      <div className="flex gap-5 mt-5">
         <motion.a
-          href='https://www.linkedin.com/in/mohammed-nihal-mm/'
-          target='_blank'
-          rel='noopener noreferrer'
+          href="https://www.linkedin.com/in/mohammed-nihal-mm/"
+          target="_blank"
+          rel="noopener noreferrer"
           whileHover={{ scale: 1.2 }}
           whileTap={{ scale: 0.9 }}
-          style={{ cursor: 'pointer' }} // Ensure cursor pointer is applied
+          style={{ cursor: "pointer" }}
         >
-          <FaLinkedin className='text-blue-600' size={30} style={{ cursor: 'pointer' }} />
+          <FaLinkedin className="text-blue-600" size={30} style={{ cursor: "pointer" }} />
         </motion.a>
         <motion.a
-          href='https://github.com/nihalmmuneer'
-          target='_blank'
-          rel='noopener noreferrer'
+          href="https://github.com/nihalmmuneer"
+          target="_blank"
+          rel="noopener noreferrer"
           whileHover={{ scale: 1.2 }}
           whileTap={{ scale: 0.9 }}
-          style={{ cursor: 'pointer' }} // Ensure cursor pointer is applied
+          style={{ cursor: "pointer" }}
         >
-          <FaGithub className='text-white' size={30} style={{ cursor: 'pointer' }} />
+          <FaGithub className="text-white" size={30} style={{ cursor: "pointer" }} />
         </motion.a>
       </div>
-
-     
 
       <div className="mt-20 flex flex-wrap gap-10">
         {services.map((service, index) => (
