@@ -68,7 +68,7 @@ const Hero = () => {
           animate={{ y: 0, opacity: 1 }}
           transition={{ duration: 1, ease: "easeOut" }}
           className="
-            absolute xs:bottom-10 bottom-32 w-full 
+            absolute xs:bottom-48 bottom-32 w-full 
             flex justify-center items-center
           "
         >
