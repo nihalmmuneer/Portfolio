@@ -1,5 +1,5 @@
 /** @type {import('tailwindcss').Config} */
-export default  {
+module.exports = {
   content: ["./src/**/*.{js,jsx}"],
   mode: "jit",
   theme: {
@@ -16,12 +16,7 @@ export default  {
         card: "0px 35px 120px -15px #211e35",
       },
       screens: {
-        'xs': '250px',
-        "sm": "500px",
-        'md': '768px',
-        'lg': '1024px',
-        'xl': '1280px',
-        '2xl': '1536px',
+        xs: "450px",
       },
       backgroundImage: {
         "hero-pattern": "url('/src/assets/herobg.png')",

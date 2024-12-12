@@ -25,6 +25,19 @@ import {
   threejs,
 } from "../assets";
 
+import avodha from "../assets/company/avodha-icon.jpg";
+import edstem from "../assets/company/edstem_logo.jpg";
+import purestar from "../assets/company/purestar-web-logo.png";
+import ecommerce from "../assets/tech/ecommerce_.png";
+import doctorAppointment from "../assets/tech/doctor-appointment.png";
+import blog from "../assets/tech/blog.png";
+import realEstate from "../assets/tech/realEstate.png";
+import colleagueOne from "../assets/peers/sangeeta-icon.jpg";
+import colleagueTwo from "../assets/peers/sruthi-icon.jpg";
+import colleagueThree from "../assets/peers/roshan-icon.jpg";
+import colleagueFour from '../assets/peers/sisira-icon.jpg';
+import colleagueFive from "../assets/peers/aswanth-icon.jpg";
+
 export const navLinks = [
   {
     id: "about",
@@ -116,55 +129,44 @@ const technologies = [
 
 const experiences = [
   {
-    title: "React.js Developer",
-    company_name: "Starbucks",
-    icon: starbucks,
+    title: "Python Django Intern",
+    company_name: "Avodha",
+    icon: avodha,
     iconBg: "#383E56",
-    date: "March 2020 - April 2021",
+    date: "Jan 2020 - May 2021",
     points: [
-      "Developing and maintaining web applications using React.js and other related technologies.",
-      "Collaborating with cross-functional teams including designers, product managers, and other developers to create high-quality products.",
-      "Implementing responsive design and ensuring cross-browser compatibility.",
-      "Participating in code reviews and providing constructive feedback to other developers.",
+      "Assisted in developing web applications using Python Django framework under senior developers' guidance.",
+      "Contributed to the creation and testing of RESTful APIs for integration with front-end applications.",
+      "Participated in debugging and fixing minor issues in existing Django-based applications.",
+      "Gained hands-on experience in working with relational databases and ORM queries.",
+      "Collaborated with the team to ensure project deadlines and quality standards were met.",
     ],
   },
   {
-    title: "React Native Developer",
-    company_name: "Tesla",
-    icon: tesla,
+    title: "React Developer",
+    company_name: "Edstem Technologies",
+    icon: edstem,
     iconBg: "#E6DEDD",
-    date: "Jan 2021 - Feb 2022",
+    date: "June 2021 - July 2023",
     points: [
-      "Developing and maintaining web applications using React.js and other related technologies.",
-      "Collaborating with cross-functional teams including designers, product managers, and other developers to create high-quality products.",
-      "Implementing responsive design and ensuring cross-browser compatibility.",
-      "Participating in code reviews and providing constructive feedback to other developers.",
+      "Developed and maintained web applications using React.js and related technologies.",
+      "Collaborated with cross-functional teams, including designers, product managers, and developers, to deliver high-quality products.",
+      "Implemented responsive design to ensure cross-browser compatibility and optimal user experience.",
+      "Participated in code reviews and provided constructive feedback to enhance code quality and team performance.",
     ],
   },
+
   {
-    title: "Web Developer",
-    company_name: "Shopify",
-    icon: shopify,
-    iconBg: "#383E56",
-    date: "Jan 2022 - Jan 2023",
-    points: [
-      "Developing and maintaining web applications using React.js and other related technologies.",
-      "Collaborating with cross-functional teams including designers, product managers, and other developers to create high-quality products.",
-      "Implementing responsive design and ensuring cross-browser compatibility.",
-      "Participating in code reviews and providing constructive feedback to other developers.",
-    ],
-  },
-  {
-    title: "Full stack Developer",
-    company_name: "Meta",
-    icon: meta,
+    title: "Nextjs/React Developer",
+    company_name: "Pure Star Employment",
+    icon: purestar,
     iconBg: "#E6DEDD",
-    date: "Jan 2023 - Present",
+    date: "August 2023 - Present",
     points: [
-      "Developing and maintaining web applications using React.js and other related technologies.",
-      "Collaborating with cross-functional teams including designers, product managers, and other developers to create high-quality products.",
-      "Implementing responsive design and ensuring cross-browser compatibility.",
-      "Participating in code reviews and providing constructive feedback to other developers.",
+      "Developing and maintaining web applications using Next.js and React.js for enhanced performance and scalability.",
+      "Collaborating with cross-functional teams to create responsive, high-quality user interfaces and improve user experience.",
+      "Implementing server-side rendering and static site generation to optimize page load times and SEO.",
+      "Participating in code reviews and providing feedback to ensure adherence to best practices and coding standards.",
     ],
   },
 ];
@@ -172,42 +174,58 @@ const experiences = [
 const testimonials = [
   {
     testimonial:
-      "I thought it was impossible to make a website as beautiful as our product, but Rick proved me wrong.",
-    name: "Sara Lee",
-    designation: "CFO",
-    company: "Acme Co",
-    image: "https://randomuser.me/api/portraits/women/4.jpg",
+      "Nihal worked with me as a ReactJS developer for over a year. He quickly became a reliable team player, consistently delivering bug-free code and improving our projects with his proactive approach. I highly recommend him; he will be an asset to any team.",
+    name: "Sangeeta Saha",
+    designation: "Technical Project Manager",
+    company: "Edstem Technologies",
+    image: colleagueOne,
   },
   {
     testimonial:
-      "I've never met a web developer who truly cares about their clients' success like Rick does.",
-    name: "Chris Brown",
-    designation: "COO",
-    company: "DEF Corp",
-    image: "https://randomuser.me/api/portraits/men/5.jpg",
+      "I recommend Nihal for any software development role. His technical skills and ability to quickly grasp complex concepts greatly benefited our team at Edstem Technologies. Nihal's proactive approach and positive attitude make him a valuable asset in any organization.",
+    name: "Sruthi Suresh. M ",
+    designation: "Ex-Edstem, Student at WHZ University Of Applied Science",
+    company: "Zwickau, Saxony, Germany",
+    image: colleagueTwo,
   },
   {
     testimonial:
-      "After Rick optimized our website, our traffic increased by 50%. We can't thank them enough!",
-    name: "Lisa Wang",
-    designation: "CTO",
-    company: "456 Enterprises",
-    image: "https://randomuser.me/api/portraits/women/6.jpg",
+      "I had the privilege of working closely with Mohammad Nihal on several projects. His React expertise and proactive problem-solving consistently shine through. I highly recommend him as an invaluable asset to any software development team.",
+    name: "Roshan Raju Daniel ",
+    designation: "Software Engineer",
+    company: "Amstor IT Services",
+    image: colleagueThree,
+  },
+  {
+    testimonial:
+      "I highly recommend Mohammed Nihal for any opportunities. His exceptional skills and dedication in ReactJS development, along with his strong work ethic and teamwork, make him a valuable asset. I am confident he will excel in any front-end development role.",
+    name: "Sisira J S ",
+    designation: "Software Engineer",
+    company: "Edstem Technologies",
+    image: colleagueFour,
+  },
+  {
+    testimonial:
+      "I wholeheartedly endorse Mohammed Nihal as an exceptional React JS developer, recognized for his swift understanding of new concepts and outstanding problem-solving abilities. His technical expertise, attention to detail, and collaborative nature make him an invaluable team player.",
+    name: "Aswanth Mohan",
+    designation: "Software Engineer",
+    company: "Edstem Technologies",
+    image: colleagueFive,
   },
 ];
 
 const projects = [
   {
-    name: "Car Rent",
+    name: "Ecommerce",
     description:
-      "Web-based platform that allows users to search, book, and manage car rentals from various providers, providing a convenient and efficient solution for transportation needs.",
+      "This eCommerce project, built with Next.js, Tailwind CSS, and Sanity, features a dynamic product catalog with fast loading times and improved SEO. The responsive UI includes product filtering, user authentication, and a secure checkout process powered by Stripe.",
     tags: [
       {
-        name: "react",
+        name: "nextjs",
         color: "blue-text-gradient",
       },
       {
-        name: "mongodb",
+        name: "sanity",
         color: "green-text-gradient",
       },
       {
@@ -215,50 +233,87 @@ const projects = [
         color: "pink-text-gradient",
       },
     ],
-    image: carrent,
-    source_code_link: "https://github.com/",
+    image: ecommerce,
+    source_deployment_link: "https://sanity-ecommerce-khaki.vercel.app/",
   },
   {
-    name: "Job IT",
+    name: "Doctor Appointment",
     description:
-      "Web application that enables users to search for job openings, view estimated salary ranges for positions, and locate available jobs based on their current location.",
-    tags: [
-      {
-        name: "react",
-        color: "blue-text-gradient",
-      },
-      {
-        name: "restapi",
-        color: "green-text-gradient",
-      },
-      {
-        name: "scss",
-        color: "pink-text-gradient",
-      },
-    ],
-    image: jobit,
-    source_code_link: "https://github.com/",
-  },
-  {
-    name: "Trip Guide",
-    description:
-      "A comprehensive travel booking platform that allows users to book flights, hotels, and rental cars, and offers curated recommendations for popular destinations.",
+      "This Doctor Appointment web application, built with Next.js, Tailwind CSS, and Context API, enables patients to book appointments by doctor category and view their booking history, ensuring a seamless healthcare experience.",
     tags: [
       {
         name: "nextjs",
         color: "blue-text-gradient",
       },
       {
-        name: "supabase",
+        name: "contextapi",
         color: "green-text-gradient",
       },
       {
-        name: "css",
+        name: "tailwindcss",
         color: "pink-text-gradient",
       },
     ],
-    image: tripguide,
-    source_code_link: "https://github.com/",
+    image: doctorAppointment,
+    source_deployment_link: "https://hospital-management-bay.vercel.app/",
+  },
+  {
+    name: "Blog",
+    description:
+      "A blog platform where users can post blogs, comment on posts, like, and edit their entries, built with React, Node.js, MongoDB, Tailwind CSS, and Firebase.",
+    tags: [
+      {
+        name: "react",
+        color: "blue-text-gradient",
+      },
+      {
+        name: "nodejs",
+        color: "green-text-gradient",
+      },
+      {
+        name: "mongodb",
+        color: "pink-text-gradient",
+      },
+      {
+        name: "tailwindcss",
+        color: "blue-text-gradient",
+      },
+      {
+        name: "firebase",
+        color: "green-text-gradient",
+      },
+    ],
+    image: blog,
+    source_deployment_link: "https://mern-blog-in2j.onrender.com/",
+  },
+  {
+    name: "Real Estate",
+    description:
+      "A platform where users can find rental and sale properties, contact landlords, and view property details, built with React, Node.js, MongoDB, and Tailwind CSS.",
+    tags: [
+      {
+        name: "react",
+        color: "blue-text-gradient",
+      },
+      {
+        name: "nodejs",
+        color: "green-text-gradient",
+      },
+      {
+        name: "mongodb",
+        color: "pink-text-gradient",
+      },
+      {
+        name: "tailwindcss",
+        color: "blue-text-gradient",
+      },
+      {
+        name: "firebase",
+        color: "green-text-gradient",
+      },
+    ],
+    image: realEstate,
+    source_deployment_link: "https://real-estate-z0z4.onrender.com/",
   },
 ];
 
