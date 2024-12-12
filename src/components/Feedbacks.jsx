@@ -9,28 +9,35 @@ import { testimonials } from "../constants"; // Adjust the import based on your 
 const FeedbackCard = ({ index, testimonial, name, designation, company, image }) => (
   <motion.div
     variants={fadeIn("", "spring", index * 0.5, 0.75)}
-    className='bg-black-200 p-6 rounded-3xl xs:w-[320px] w-full relative shadow-md hover:shadow-lg transition-shadow duration-300'
+    className="bg-black-200 p-6 rounded-3xl xs:w-[320px] w-full relative shadow-md hover:shadow-lg transition-shadow duration-300"
   >
-    <div className='absolute inset-0 flex justify-end m-3 card-img_hover'>
+    <div className="absolute inset-0 flex justify-end m-3 card-img_hover">
       <div
-        onClick={() => window.open("https://www.linkedin.com/in/mohammed-nihal-mm/details/recommendations/", "_blank")}
-        className='bg-blue-600 hover:bg-blue-500 transition-colors duration-300 w-10 h-10 rounded-full flex justify-center items-center cursor-pointer transform hover:scale-110'
+        onClick={() =>
+          window.open(
+            "https://www.linkedin.com/in/mohammed-nihal-mm/details/recommendations/",
+            "_blank"
+          )
+        }
+        className="bg-blue-600 hover:bg-blue-500 transition-colors duration-300 w-10 h-10 rounded-full flex justify-center items-center cursor-pointer transform hover:scale-110"
       >
-        <FaLinkedin size={20} className='text-white' />
+        <FaLinkedin size={20} className="text-white" />
       </div>
     </div>
 
-    <p className='text-white font-black text-[36px] xs:text-[48px]'>"</p>
+    <p className="text-white font-black text-[36px] xs:text-[48px]">"</p>
 
-    <div className='mt-2'>
-      <p className='text-white tracking-wider text-[14px] xs:text-[16px]'>{testimonial}</p>
+    <div className="mt-2">
+      <p className="text-white tracking-wider text-[14px] xs:text-[16px]">
+        {testimonial}
+      </p>
 
-      <div className='mt-4 flex justify-between items-center gap-1'>
-        <div className='flex-1 flex flex-col'>
-          <p className='text-white font-medium text-[14px] xs:text-[16px]'>
-            <span className='blue-text-gradient'>@</span> {name}
+      <div className="mt-4 flex justify-between items-center gap-1">
+        <div className="flex-1 flex flex-col">
+          <p className="text-white font-medium text-[14px] xs:text-[16px]">
+            <span className="blue-text-gradient">@</span> {name}
           </p>
-          <p className='mt-1 text-secondary text-[10px] xs:text-[12px]'>
+          <p className="mt-1 text-secondary text-[10px] xs:text-[12px]">
             {designation} of {company}
           </p>
         </div>
@@ -38,7 +45,7 @@ const FeedbackCard = ({ index, testimonial, name, designation, company, image })
         <img
           src={image}
           alt={`feedback_by-${name}`}
-          className='w-10 h-10 rounded-full object-cover'
+          className="w-10 h-10 rounded-full object-cover"
         />
       </div>
     </div>
@@ -54,7 +61,11 @@ const Feedbacks = () => {
           <h2 className={styles.sectionHeadText}>Testimonials.</h2>
         </motion.div>
       </div>
-      <div className={`-mt-20 pb-14 ${styles.paddingX} flex flex-wrap justify-center gap-5`}>
+
+      {/* Adjusting the grid layout for responsiveness */}
+      <div
+        className={`-mt-20 pb-14 ${styles.paddingX} grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5`}
+      >
         {testimonials.map((testimonial, index) => (
           <FeedbackCard key={testimonial.name} index={index} {...testimonial} />
         ))}

@@ -10,9 +10,9 @@ import { FaLinkedin, FaGithub } from "react-icons/fa";
 
 const ServiceCard = ({ index, title, icon }) => (
   <Tilt
-    className="xs:w-[250px] w-full"
-    tiltMaxAngleX={45} // Adjusted properties for react-parallax-tilt
-    tiltMaxAngleY={45}
+    className="w-full"
+    tiltMaxAngleX={35} // Reduced tilt for better usability on mobile
+    tiltMaxAngleY={35}
     scale={1}
     transitionSpeed={450}
   >
@@ -21,15 +21,15 @@ const ServiceCard = ({ index, title, icon }) => (
       className="w-full green-pink-gradient p-[1px] rounded-[20px] shadow-card"
     >
       <div
-        className="bg-tertiary rounded-[20px] py-5 px-12 min-h-[280px] flex justify-evenly items-center flex-col"
+        className="bg-tertiary rounded-[20px] py-5 px-8 min-h-[200px] xs:min-h-[280px] flex justify-evenly items-center flex-col"
       >
         <img
           src={icon}
-          alt="web-development"
-          className="w-16 h-16 object-contain"
+          alt={title}
+          className="w-12 h-12 xs:w-16 xs:h-16 object-contain"
         />
 
-        <h3 className="text-white text-[20px] font-bold text-center">
+        <h3 className="text-white text-[16px] xs:text-[20px] font-bold text-center">
           {title}
         </h3>
       </div>
@@ -41,13 +41,13 @@ const About = () => {
   return (
     <section id="about">
       <motion.div variants={textVariant()}>
-        <p className={styles.sectionSubText}>Introduction</p>
-        <h2 className={styles.sectionHeadText}>Overview.</h2>
+        <p className={`${styles.sectionSubText} text-center`}>Introduction</p>
+        <h2 className={`${styles.sectionHeadText} text-center`}>Overview.</h2>
       </motion.div>
 
       <motion.p
         variants={fadeIn("", "", 0.1, 1)}
-        className="mt-4 text-secondary text-[17px] max-w-3xl leading-[30px]"
+        className="mt-4 text-secondary text-[14px] sm:text-[17px] max-w-3xl leading-[24px] sm:leading-[30px] text-center mx-auto"
       >
         I am a certified Full Stack Software Engineer with over 3 years of
         experience in delivering innovative web applications. I specialize in
@@ -59,16 +59,17 @@ const About = () => {
         life!
       </motion.p>
 
-      <div className="flex gap-5 mt-5">
+      {/* Social Links */}
+      <div className="flex justify-center gap-5 mt-5">
         <motion.a
           href="https://www.linkedin.com/in/mohammed-nihal-mm/"
           target="_blank"
           rel="noopener noreferrer"
           whileHover={{ scale: 1.2 }}
           whileTap={{ scale: 0.9 }}
-          style={{ cursor: "pointer" }}
+          className="cursor-pointer"
         >
-          <FaLinkedin className="text-blue-600" size={30} style={{ cursor: "pointer" }} />
+          <FaLinkedin className="text-blue-600" size={25} sm:size={30} />
         </motion.a>
         <motion.a
           href="https://github.com/nihalmmuneer"
@@ -76,13 +77,14 @@ const About = () => {
           rel="noopener noreferrer"
           whileHover={{ scale: 1.2 }}
           whileTap={{ scale: 0.9 }}
-          style={{ cursor: "pointer" }}
+          className="cursor-pointer"
         >
-          <FaGithub className="text-white" size={30} style={{ cursor: "pointer" }} />
+          <FaGithub className="text-white" size={25} sm:size={30} />
         </motion.a>
       </div>
 
-      <div className="mt-20 flex flex-wrap gap-10">
+      {/* Services Grid */}
+      <div className="mt-16 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-5">
         {services.map((service, index) => (
           <ServiceCard key={service.title} index={index} {...service} />
         ))}
