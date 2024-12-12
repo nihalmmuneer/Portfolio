@@ -1,17 +1,18 @@
 import React, { Suspense, useEffect, useState } from "react";
 import { Canvas } from "@react-three/fiber";
-import { OrbitControls, Preload, useGLTF } from "@react-three/drei";
+import { OrbitControls, Preload, useGLTF, isWebGLAvailable } from "@react-three/drei";
 
-// Loader component to display while loading assets
 const CanvasLoader = () => (
   <div style={{ textAlign: "center", marginTop: "20px", color: "white" }}>
     Loading...
   </div>
 );
 
-// Computers component to load and position the GLTF model
 const Computers = ({ isMobile }) => {
-  const { scene } = useGLTF("./desktop_pc/scene.gltf", true);
+  const { scene } = useGLTF(
+    isMobile ? "./desktop_pc_low_poly/scene.gltf" : "./desktop_pc/scene.gltf",
+    true
+  );
 
   return (
     <primitive
@@ -23,10 +24,8 @@ const Computers = ({ isMobile }) => {
   );
 };
 
-// Canvas wrapper for rendering the scene
 const ComputersCanvas = () => {
   const [isMobile, setIsMobile] = useState(false);
-  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
     const updateMobileState = () => setIsMobile(window.innerWidth <= 500);
@@ -35,28 +34,28 @@ const ComputersCanvas = () => {
     return () => window.removeEventListener("resize", updateMobileState);
   }, []);
 
+  if (!isWebGLAvailable()) {
+    return <CanvasLoader />;
+  }
+
   return (
-    <div style={{ position: "relative", width: "100%", height: "100vh" }}>
-      {isLoading && <CanvasLoader />}
-      <Canvas
-        frameloop="demand"
-        shadows
-        dpr={[1, window.devicePixelRatio || 2]}
-        camera={{ position: [20, 3, 5], fov: 25 }}
-        gl={{ antialias: true, preserveDrawingBuffer: false }}
-        onCreated={() => setIsLoading(false)}
-      >
-        <Suspense fallback={null}>
-          <OrbitControls
-            enableZoom={false}
-            maxPolarAngle={Math.PI / 2}
-            minPolarAngle={Math.PI / 2}
-          />
-          <Computers isMobile={isMobile} />
-        </Suspense>
-        <Preload all />
-      </Canvas>
-    </div>
+    <Canvas
+      frameloop="demand"
+      shadows={isMobile ? false : true}
+      dpr={[1, Math.min(window.devicePixelRatio, 2)]}
+      camera={{ position: [20, 3, 5], fov: 25 }}
+      gl={{ antialias: !isMobile, preserveDrawingBuffer: false }}
+    >
+      <Suspense fallback={<CanvasLoader />}>
+        <OrbitControls
+          enableZoom={false}
+          maxPolarAngle={Math.PI / 2}
+          minPolarAngle={Math.PI / 2}
+        />
+        <Computers isMobile={isMobile} />
+      </Suspense>
+      <Preload all />
+    </Canvas>
   );
 };
 
