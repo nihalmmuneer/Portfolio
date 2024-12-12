@@ -61,7 +61,7 @@ const Hero = () => {
           </p>
         </div>
       </div>
-      <ComputersCanvas className="w-full h-full pointer-events-none" />
+      {/* <ComputersCanvas className="w-full h-full pointer-events-none" /> */}
       {showSwipeButton && (
         <motion.div
           initial={{ y: -50, opacity: 0 }}
