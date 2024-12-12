@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 import { useEffect, useState } from "react";
-import { styles } from "../styles"; // Adjust this import based on your styles
-import { ComputersCanvas } from "./canvas"; // Your existing canvas component
+import { styles } from "../styles";
+import { ComputersCanvas } from "./canvas";
 
 const CircleDownArrowIcon = () => {
   return (
@@ -28,11 +28,10 @@ const Hero = () => {
   const [showSwipeButton, setShowSwipeButton] = useState(true);
 
   useEffect(() => {
-    const timer = setTimeout(() => setShowSwipeButton(true), 500); // Show button after 500ms
+    const timer = setTimeout(() => setShowSwipeButton(true), 500);
     return () => clearTimeout(timer);
   }, []);
 
-  // Scroll to the About section
   const handleScrollToAbout = () => {
     const aboutSection = document.getElementById("about");
     if (aboutSection) {
@@ -40,28 +39,18 @@ const Hero = () => {
     }
   };
 
-  // Handle icon click
-  const handleClick = () => {
-    handleScrollToAbout(); // Trigger scroll on icon click
-  };
-
-  // Handle touch event
-  const handleTouch = (event) => {
-    // Prevent default scrolling behavior when touching the screen
-    event.preventDefault();
-    handleScrollToAbout(); // Scroll to the About section on touch
-  };
-
   return (
     <section className="relative w-full h-screen mx-auto">
       <div
-        className={`absolute inset-0 top-[120px] max-w-7xl mx-auto ${styles.paddingX} flex flex-row items-start gap-5`}
+        className={`
+          absolute inset-0 top-[120px] max-w-7xl mx-auto 
+          ${styles.paddingX} flex flex-row items-start gap-5
+        `}
       >
         <div className="flex flex-col justify-center items-center mt-5">
           <div className="w-5 h-5 rounded-full bg-[#915EFF]" />
           <div className="w-1 sm:h-80 h-40 violet-gradient" />
         </div>
-
         <div>
           <h1 className={`${styles.heroHeadText} text-white`}>
             Hi, I'm <span className="text-[#915EFF]">Nihal</span>
@@ -72,31 +61,24 @@ const Hero = () => {
           </p>
         </div>
       </div>
-
-      {/* Canvas Background */}
       <ComputersCanvas className="w-full h-full pointer-events-none" />
-
-      {/* Circle Down Arrow Icon */}
       {showSwipeButton && (
         <motion.div
           initial={{ y: -50, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
           transition={{ duration: 1, ease: "easeOut" }}
-          className="absolute xs:bottom-10 bottom-32 w-full flex justify-center items-center"
+          className="
+            absolute xs:bottom-10 bottom-32 w-full 
+            flex justify-center items-center
+          "
         >
           <motion.div
-            onClick={handleClick} // Handle click to scroll
-            onTouchStart={handleTouch} // Handle touch to scroll
-            whileHover={{ y: -5 }} // Bouncing effect on hover
-            whileTap={{ y: -10 }} // More pronounced bounce on click
+            onClick={handleScrollToAbout}
+            whileHover={{ y: -5 }}
+            whileTap={{ y: -10 }}
             animate={{
-              y: [0, -10, 0], // Continuous bouncing effect
-              transition: {
-                duration: 1,
-                ease: "easeInOut",
-                repeat: Infinity,
-                repeatType: "loop",
-              },
+              y: [0, -10, 0],
+              transition: { duration: 1, ease: "easeInOut", repeat: Infinity },
             }}
           >
             <CircleDownArrowIcon />
