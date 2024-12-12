@@ -10,7 +10,8 @@ const App = () => {
           <Navbar />
           <Hero />
         </div>
-        <About />
+        {/* Add id to the About section for scrolling */}
+        <About id="about" />
         <Experience />
         <Tech />
         <Works />

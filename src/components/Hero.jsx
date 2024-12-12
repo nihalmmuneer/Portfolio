@@ -1,8 +1,57 @@
 import { motion } from "framer-motion";
-import { styles } from "../styles";
-import { ComputersCanvas } from "./canvas";
+import { useEffect, useState } from "react";
+import { styles } from "../styles"; // Adjust this import based on your styles
+import { ComputersCanvas } from "./canvas"; // Your existing canvas component
+
+const CircleDownArrowIcon = () => {
+  return (
+    <motion.svg
+      xmlns="http://www.w3.org/2000/svg"
+      width="60"
+      height="60"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      className="text-secondary cursor-pointer no-outline"
+    >
+      <circle cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="2" />
+      <path d="M12 8v8" />
+      <path d="M8 12l4 4 4-4" />
+    </motion.svg>
+  );
+};
 
 const Hero = () => {
+  const [showSwipeButton, setShowSwipeButton] = useState(true);
+
+  useEffect(() => {
+    const timer = setTimeout(() => setShowSwipeButton(true), 500); // Show button after 500ms
+    return () => clearTimeout(timer);
+  }, []);
+
+  // Scroll to the About section
+  const handleScrollToAbout = () => {
+    const aboutSection = document.getElementById("about");
+    if (aboutSection) {
+      aboutSection.scrollIntoView({ behavior: "smooth" });
+    }
+  };
+
+  // Handle icon click
+  const handleClick = () => {
+    handleScrollToAbout(); // Trigger scroll on icon click
+  };
+
+  // Handle touch event
+  const handleTouch = (event) => {
+    // Prevent default scrolling behavior when touching the screen
+    event.preventDefault();
+    handleScrollToAbout(); // Scroll to the About section on touch
+  };
+
   return (
     <section className="relative w-full h-screen mx-auto">
       <div
@@ -24,26 +73,36 @@ const Hero = () => {
         </div>
       </div>
 
-      {/* Ensure canvas doesn't block touch events */}
+      {/* Canvas Background */}
       <ComputersCanvas className="w-full h-full pointer-events-none" />
 
-      <div className="relative xs:bottom-10 bottom-32 w-full flex justify-center items-center">
-        <a href="#about">
-          <div className="w-[35px] h-[64px] rounded-3xl border-4 border-secondary flex justify-center items-start p-2">
-            <motion.div
-              animate={{
-                y: [0, 24, 0],
-              }}
-              transition={{
-                duration: 1.5,
+      {/* Circle Down Arrow Icon */}
+      {showSwipeButton && (
+        <motion.div
+          initial={{ y: -50, opacity: 0 }}
+          animate={{ y: 0, opacity: 1 }}
+          transition={{ duration: 1, ease: "easeOut" }}
+          className="absolute xs:bottom-10 bottom-32 w-full flex justify-center items-center"
+        >
+          <motion.div
+            onClick={handleClick} // Handle click to scroll
+            onTouchStart={handleTouch} // Handle touch to scroll
+            whileHover={{ y: -5 }} // Bouncing effect on hover
+            whileTap={{ y: -10 }} // More pronounced bounce on click
+            animate={{
+              y: [0, -10, 0], // Continuous bouncing effect
+              transition: {
+                duration: 1,
+                ease: "easeInOut",
                 repeat: Infinity,
                 repeatType: "loop",
-              }}
-              className="w-3 h-3 rounded-full bg-secondary mb-1"
-            />
-          </div>
-        </a>
-      </div>
+              },
+            }}
+          >
+            <CircleDownArrowIcon />
+          </motion.div>
+        </motion.div>
+      )}
     </section>
   );
 };
